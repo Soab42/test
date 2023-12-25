@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Page({ pageNo }) {
   const [isInterSecting, setIsIntersecting] = useState(false);
@@ -13,8 +13,13 @@ export default function Page({ pageNo }) {
       { threshold: 0.5 }
     );
     observer.observe(ref.current);
+    //for first time animations
+    // if you want to animate all times then remove this
+    if (isInterSecting) {
+      observer.unobserve(ref.current);
+    }
     return () => observer.disconnect();
-  }, []);
+  }, [isInterSecting]);
 
   return (
     <div className={`page ${isInterSecting ? "slide-in" : ""}`} ref={ref}>
