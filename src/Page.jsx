@@ -10,14 +10,14 @@ export default function Page({ pageNo }) {
         //   console.log(entry);
         setIsIntersecting(entry.isIntersecting);
       },
-      { threshold: 0.5 }
+      { threshold: 1 }
     );
     observer.observe(ref.current);
     //for first time animations
     // if you want to animate all times then remove this
-    if (isInterSecting) {
-      observer.unobserve(ref.current);
-    }
+    // if (isInterSecting) {
+    //   observer.unobserve(ref.current);
+    // }
     return () => observer.disconnect();
   }, [isInterSecting]);
 

@@ -3,13 +3,14 @@
   margin: 0 auto;
   text-align: center;
   padding: 1rem;
+  /* overflow: hidden; */
 }
-/* main {
+main {
   justify-content: space-evenly;
   height: 100vh;
   align-items: center;
   overflow: hidden;
-} */
+}
 
 .page {
   height: 20vh;
@@ -18,15 +19,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(-150%);
+
   /* opacity: 1; */
   opacity: 0;
 }
 .page:nth-child(odd) {
   background: pink;
+  transform: translateX(-150%);
 }
 .page:nth-child(even) {
   background: rgb(219, 92, 113);
+  transform: translateX(150%);
 }
 .slide-in {
   transform: translateX(0) !important;
